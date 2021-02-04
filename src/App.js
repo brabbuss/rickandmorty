@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import CharacterCardContainer from "./components/CharacterCardContainer";
+import { getCharacterData } from "./components/utilities/apiCalls";
+import {sampleDataCharacters} from './sampleData/sampleDataCharacters'
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
+  state = {
+    allCharacters: {},
+    // allCharacters: sampleDataCharacters.results || {},
+    // error: false
+  };
+
+  componentDidMount = async () => {
+    const charactersData = await getCharacterData();
+    typeof charactersData === "number"
+      ? this.setState({ error:true })
+      : this.setState({ allCharacters: charactersData.results, error:false });
+  };
+
+  render() {
+    return (
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <CharacterCardContainer allCharacters={this.state.allCharacters} />
       </header>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;
