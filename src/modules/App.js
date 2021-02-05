@@ -1,16 +1,14 @@
 import "./App.css";
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import CharacterCardContainer from "./CharacterCardContainer";
 import { getCharacterData } from "./utilities/apiCalls";
-// import {sampleDataCharacters} from '../sampleData/sampleDataCharacters'
+import Button from '../ui/Button/Button'
+// import PageTitle from '../ui/PageTitle/PageTitle' // styled is undefined????
 
 const App = () => {
   
   const [characterList, setCharacterList] = useState([])
   const [error, setError] = useState(false)
-  // state = {
-  //   allCharacters: {},
-  // };
 
   useEffect(async () => {
     const charactersData = await getCharacterData();
@@ -24,6 +22,8 @@ const App = () => {
 
   return (
     <header className="App-header">
+      <h1>WUBBALUBBADUBDUB</h1>
+      <Button theme={'primary'}>GET MOAR</Button>
       <CharacterCardContainer characterList={characterList} />
     </header>
   )
