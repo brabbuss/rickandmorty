@@ -28,15 +28,19 @@ const CharacterCard = props => {
       <img src={image} alt="" />
       <p><i>{type && `${type}`}</i></p>
       {/* <p><i>{id && `ID:${id}`}</i></p> */}
-      <h5><b>Status</b></h5> <p>{status}</p>
-      <h5><b>Origin</b></h5> <p><a href={origin.url}>{origin.name}</a></p>
-      <h5><b>Location</b></h5> <p><a href={location.url}>{location.name}</a></p>
-      <h5><b>Species</b></h5> <p>{species}</p>
-      <h5><b>Gender</b></h5> <p>{gender}</p>
-      <h5><b>Episode</b></h5> <p>{episodeList()}</p>
+      <span><h5><b>Status:</b></h5><p style={{borderRadius: '5px', padding:'0 .6em', color:'black', backgroundColor: `${status === 'Alive' ? 'green' : 'red'}`, fontWeight: '800'}}>{status}</p></span>
+      <span><h5><b>Origin:</b></h5> <p><a href={origin.url}>{origin.name}</a></p></span>
+      <span><h5><b>Location:</b></h5> <p><a href={location.url}>{location.name}</a></p></span>
+      <span><h5><b>Species:</b></h5> <p>{species}</p></span>
+      <span><h5><b>Gender:</b></h5> <p>{gender}</p></span>
+      <span><h5><b>Episode:</b></h5> <p>{episodeList()}</p></span>
       <br/>
 
       <style jsx>{`
+        span {
+          display: flex;
+          align-items: center;
+        }
         article {
           color: salmon;
           display: block;
@@ -59,7 +63,7 @@ const CharacterCard = props => {
         }
         article h5 {
           // padding:10px;
-          margin:10px;
+          margin: 5px 5px;
         }
         article p {
           font-size: 1.5rem;
