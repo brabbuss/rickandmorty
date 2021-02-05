@@ -38,7 +38,7 @@ const App = () => {
           <TitleImage />
         </div>
           <Button margin="4em 0em" theme={"primary"} onClick={updateCharacters}>
-            GET MOAR
+            BRAH GET RANDO PEEPS BRAH
           </Button>
       </div>
       {characterList && (
