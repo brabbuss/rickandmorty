@@ -1,13 +1,12 @@
 import React from 'react';
 import CharacterCard from './CharacterCard'
 
-const CharacterCardContainer = props => {
-  const {allCharacters} = props
+const CharacterCardContainer = ({characterList}) => {
 
-  const characterList = () => (
-    !allCharacters.length 
+  const mapCharacterList = () => (
+    !characterList
     ? <h1>Consulting the Citadel of Ricks</h1>
-    : allCharacters.map(character => (
+    : characterList.map(character => (
       <CharacterCard
         key={character.id}
         details={character}
@@ -17,7 +16,7 @@ const CharacterCardContainer = props => {
 
   return (
     <div>
-      {characterList()}
+      {mapCharacterList()}
     </div>
    );
 }
