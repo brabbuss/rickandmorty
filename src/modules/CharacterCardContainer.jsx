@@ -19,7 +19,7 @@ const CharacterCardContainer = ({children, characterList}) => {
       {mapCharacterList()}
 
       <style jsx>{`
-        div {
+        header div {
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
