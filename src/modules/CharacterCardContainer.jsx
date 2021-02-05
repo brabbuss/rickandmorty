@@ -1,7 +1,7 @@
 import React from 'react';
 import CharacterCard from './CharacterCard'
 
-const CharacterCardContainer = ({characterList}) => {
+const CharacterCardContainer = ({children, characterList}) => {
 
   const mapCharacterList = () => (
     !characterList
@@ -17,6 +17,15 @@ const CharacterCardContainer = ({characterList}) => {
   return (
     <div>
       {mapCharacterList()}
+
+      <style jsx>{`
+        div {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+      `}
+      </style>
     </div>
    );
 }

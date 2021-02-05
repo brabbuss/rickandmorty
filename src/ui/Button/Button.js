@@ -8,7 +8,7 @@ import { level1, level2, level3, level4 } from '../common/shadows'
 
 // Component
 const Button = (props) => {
-  const { children, type, disabled, theme, ...other } = props
+  const { children, type, disabled, theme, margin, ...other } = props
 
   return (
     <button type={type} disabled={disabled} {...other}>
@@ -17,6 +17,7 @@ const Button = (props) => {
       {/* language=CSS */}
       <style jsx>{`
         button {
+          margin: ${margin};
           transition-duration: .4s; 
           padding: 0.7em 1.7em;
           border: none;
@@ -37,7 +38,10 @@ const Button = (props) => {
           color: rgb(255 90 255)
         }
         button:active {
-          box-shadow: ${ level4 };
+          // box-shadow: ${ level4 };
+          box-shadow: -1px 13px 20px 0px rgb(255 90 255 / 87%), 1px -2px 20px 20px rgb(248 3 183), 0px -4px 20px 14px rgb(255 0 231);
+          background-image: linear-gradient( 90deg, rgb(255 90 255) 10%, rgb(248 3 183) 100%);
+          color: black;
         }
         button:disabled {
           color: ${ white };
